@@ -6,10 +6,15 @@ import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import "./vendor/modernizr-custom";
 
+// Show & Hide loading screen. The loading screen is basically an absolutely
+// positioned <div> element which inludes an SVG loading animation.
+
 const elemLoadingScreen = document.querySelector(".loading-screen");
+// Once our webpage loads, hide the loading screen
 window.addEventListener("load", () => {
+  // Remove the loading screen
   elemLoadingScreen.remove();
-  // Enable scrolling when mobile nav menu is open/closed
+  // Enable scrolling once page is loaded
   document.body.classList.toggle("overflow-y-hidden");
   document.documentElement.classList.toggle("overflow-y-hidden");
 });

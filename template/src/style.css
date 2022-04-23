@@ -1,16 +1,21 @@
 /* Google Fonts */
+
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,800;1,700&display=swap");
 
 /* Local Font (Inkfree) */
+
 @font-face {
   font-family: Inkfree;
   src: url("/fonts/Inkfree.ttf");
 }
 
 /* Tailwind CSS directives */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom component classes */
 
 @layer components {
   .section-heading {
@@ -38,10 +43,10 @@
   }
 }
 
-/* The following styles are placed outside the "@layer components" because we
-want them to override the styles that come from Tailwind's "utilities" layer.
-I didn't placed them in @layer utilities because they're not exactly utilities,
-they're just overrides for other styles */
+/* Overrides: The following styles are placed outside the "@layer components"
+because we want them to override the styles that come from Tailwind's "utilities"
+layer. I didn't placed them in @layer utilities because they're not exactly
+utilities, they're just overrides for other styles */
 
 .sticky-nav {
   @apply fixed top-0 z-50 w-full border-b-2 border-b-gray-200 bg-white/95;
@@ -65,8 +70,12 @@ they're just overrides for other styles */
   @apply lg:min-h-[580px] xl:min-h-[600px];
 }
 
-/* Modernizr classes: If WebP is available in user's browser, we'll use a webp
-image for our hero background which is much smaller than a jpg image */
+/* Modernizr Classes: We import the Modernizr file in the script.js file. This
+automatically lets Modernizr check users browser about WebP support. Then, if
+WebP is available in user's browser, ".webp" class is added to <html> element.
+If WebP is not supported, ".no-webp" class will be added to the <html> element.
+Using this information, we can safely set a fallback background image depending
+on browser support. */
 
 .no-webp .section-hero {
   --bg-hero-mobile: url("/images/bg-hero-mobile.jpg");
