@@ -1,0 +1,79 @@
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,800;1,700&display=swap");
+
+/* Local Font (Inkfree) */
+@font-face {
+  font-family: Inkfree;
+  src: url("/fonts/Inkfree.ttf");
+}
+
+/* Tailwind CSS directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .section-heading {
+    @apply text-lg font-bold text-gray-800 md:text-2xl lg:text-3xl;
+  }
+
+  .section-subheading {
+    @apply block text-sm font-bold uppercase tracking-widest text-primary-600 md:text-base;
+  }
+
+  .btn-primary {
+    @apply rounded-lg bg-gradient-to-br from-primary-500 to-primary-700 px-6 py-3 font-semibold text-primary-50 transition hover:opacity-95;
+  }
+
+  .nav-link {
+    @apply text-xl font-semibold text-primary-700 transition hover:text-gray-500 md:text-sm md:text-gray-600 lg:text-base;
+  }
+
+  .active-tab {
+    @apply bg-white text-gray-500;
+  }
+
+  .inactive-step {
+    @apply pointer-events-none invisible opacity-0;
+  }
+}
+
+/* The following styles are placed outside the "@layer components" because we
+want them to override the styles that come from Tailwind's "utilities" layer.
+I didn't placed them in @layer utilities because they're not exactly utilities,
+they're just overrides for other styles */
+
+.sticky-nav {
+  @apply fixed top-0 z-50 w-full border-b-2 border-b-gray-200 bg-white/95;
+}
+
+/* Swiper styling */
+
+.testimonials-swiper .swiper-slide {
+  @apply flex min-h-[410px] max-w-xl flex-col gap-7 rounded-2xl bg-white px-8 pt-7 pb-12 shadow-md md:min-h-[500px] md:max-w-md md:px-12;
+}
+
+.testimonials-swiper-pagination {
+  @apply mt-6 flex justify-center md:mt-8 lg:mt-12;
+}
+
+.pricing-swiper .swiper-slide {
+  @apply min-h-[560px] max-w-[85%] rounded-2xl bg-white py-3 px-5 pt-7 pb-12 text-center text-gray-700 shadow-lg md:max-w-[340px] md:py-5 md:px-6 lg:min-h-[540px] lg:max-w-full lg:flex-1 lg:transition lg:hover:-translate-y-1 lg:hover:shadow-xl xl:px-10 xl:pt-6 xl:pb-12;
+}
+
+.pricing-swiper .swiper-slide-big {
+  @apply lg:min-h-[580px] xl:min-h-[600px];
+}
+
+/* Modernizr classes: If WebP is available in user's browser, we'll use a webp
+image for our hero background which is much smaller than a jpg image */
+
+.no-webp .section-hero {
+  --bg-hero-mobile: url("/images/bg-hero-mobile.jpg");
+  --bg-hero: url("/images/bg-hero.jpg");
+}
+
+.webp .section-hero {
+  --bg-hero-mobile: url("/images/bg-hero-mobile.webp");
+  --bg-hero: url("/images/bg-hero.webp");
+}

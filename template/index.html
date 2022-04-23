@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<!--
+  Only setting "overflow-x-hidden" on the body doesn't work. It should be set
+  on both the html and body elements. Also, overflow-x on the page level only
+  works if there's nothing absolutely positioned in relation to body. That's
+  why we add the "relative" class to the header element below
+-->
+<html lang="en" class="overflow-x-hidden overflow-y-hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Mobile app landing page template for your startup, business, or indie venture."
+    />
+
+    <title>Nestor — Mobile App Landing Page Template</title>
+
+    <!-- Social media tags (see https://ogp.me/) -->
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="/src/style.css" />
+
+    <!-- Favicons -->
+    <!-- You can generate favicons with your logo at: https://www.favicon-generator.org/ -->
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="/favicons/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="/favicons/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="/favicons/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="/favicons/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/favicons/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/favicons/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/favicons/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/favicons/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicons/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/favicons/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/favicons/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+  <!-- Body is not scrollable by default. We enable scrolling & remove loading
+    animation once the page loads. See script.js -->
+  <body
+    class="overflow-x-hidden overflow-y-hidden bg-gray-50 scrollbar-thin scrollbar-track-primary-50 scrollbar-thumb-primary-700"
+  >
+    <!-- Loading screen -->
+    <div class="loading-screen relative">
+      <div class="absolute top-0 left-0 z-[100] h-screen w-full bg-white">
+        <img
+          class="absolute top-1/2 left-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 lg:h-auto lg:w-auto"
+          src="/images/loading-spinner.svg"
+          alt="Loading..."
+          aria-label="Loading website..."
+        />
+      </div>
+    </div>
+
+    <!-- SECTION: @Navigation -->
+    <header
+      class="main-header relative flex h-16 items-end bg-white px-4 py-[14px] md:items-center md:bg-gray-50 md:px-8 lg:h-20 lg:py-10 lg:px-16 xl:h-24"
+    >
+      <div
+        class="mx-auto flex max-w-lg flex-1 items-center justify-between md:max-w-full lg:max-w-7xl"
+      >
+        <!-- Logo -->
+        <a href="#">
+          <img
+            src="/images/logo.svg"
+            class="w-20 md:w-28 lg:w-36"
+            alt="Nestor app logo"
+          />
+        </a>
+
+        <!-- Navigation menu -->
+        <nav
+          class="nav-mobile pointer-events-none invisible absolute top-0 left-0 z-10 flex h-screen w-full translate-x-full transform items-center justify-center bg-white/95 opacity-0 backdrop-blur-sm transition duration-500 ease-in-out md:pointer-events-auto md:visible md:static md:z-auto md:h-auto md:translate-x-0 md:justify-end md:bg-gray-50 md:opacity-100 md:backdrop-blur-none"
+        >
+          <ul
+            class="flex flex-col gap-8 text-center md:flex-row md:gap-10 lg:gap-14"
+          >
+            <li>
+              <a href="#features" class="nav-link">Features</a>
+            </li>
+            <li>
+              <a href="#how-it-works" class="nav-link">How it works</a>
+            </li>
+            <li>
+              <a href="#testimonials" class="nav-link">Testimonials</a>
+            </li>
+            <li>
+              <a href="#pricing" class="nav-link">Pricing</a>
+            </li>
+            <li class="mt-2 md:mt-0">
+              <a href="#!" class="btn-primary">Get started</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Mobile navigation open/close button -->
+        <button
+          class="btn-mobile z-20 border-none bg-none outline-none md:pointer-events-none md:hidden"
+          aria-label="Toggle navigation menu"
+        >
+          <img
+            class="icon-open"
+            src="/images/icons/hamburger.svg"
+            alt="Mobile menu icon"
+          />
+          <img
+            class="icon-close hidden"
+            src="/images/icons/close.svg"
+            alt="Mobile menu close icon"
+          />
+        </button>
+      </div>
+    </header>
+
+    <!-- SECTION: @Hero -->
+    <div
+      class="section-hero relative bg-hero-mobile bg-cover bg-no-repeat px-4 pt-8 pb-10 text-primary-50 md:bg-none md:px-8 lg:px-16"
+    >
+      <div
+        class="mx-auto grid max-w-lg grid-cols-2 items-center justify-items-center text-center md:max-w-full md:grid-cols-[2fr_1fr] md:items-start md:justify-items-start md:gap-y-4 md:gap-x-6 md:rounded-2xl md:bg-hero md:bg-cover md:bg-center md:bg-no-repeat md:py-12 md:px-16 md:text-left lg:gap-x-10 lg:gap-y-6 lg:py-16 lg:px-20 xl:max-w-7xl xl:gap-y-9 xl:py-20 xl:px-28"
+      >
+        <!-- Heading & subheading -->
+        <h1
+          class="col-span-2 text-xl font-bold md:col-span-1 md:text-2xl lg:text-3xl xl:text-4xl"
+        >
+          Connect with everyone,<br />share your passion and love
+        </h1>
+        <p
+          class="col-span-2 my-5 text-base leading-6 md:col-span-1 md:col-start-1 md:max-w-md md:leading-relaxed lg:text-lg xl:max-w-xl xl:leading-loose"
+        >
+          We provide the <strong>perfect</strong> platform for you to pick & use
+          the ultimate website template.
+          <span class="hidden md:inline"
+            ><strong>Boost your productivity</strong> by choosing a template
+            that reflects you and your business.</span
+          >
+        </p>
+
+        <!-- Download Badges -->
+        <div
+          class="relative col-span-1 flex -translate-x-2 flex-col justify-center gap-5 justify-self-end sm:translate-x-0 md:col-span-1 md:col-start-1 md:flex-row md:justify-self-start xl:gap-8"
+        >
+          <!-- App Store badge -->
+          <a href="#!" aria-label="Download on the App Store">
+            <picture>
+              <source srcset="/images/app-store.webp" type="image/webp" />
+              <source srcset="/images/app-store.png" type="image/png" />
+              <img
+                src="/images/app-store.png"
+                class="w-32 md:h-10 md:w-auto lg:h-12"
+                alt="App Store badge"
+              />
+            </picture>
+          </a>
+          <!-- Google Play badge -->
+          <a href="#!" aria-label="Get it on Google Play">
+            <picture>
+              <source srcset="/images/google-play.webp" type="image/webp" />
+              <source srcset="/images/google-play.png" type="image/png" />
+              <img
+                src="/images/google-play.png"
+                class="w-32 md:h-10 md:w-auto lg:h-12"
+                alt="Google Play badge"
+              />
+            </picture>
+          </a>
+
+          <!-- Extra info (cursive text) -->
+          <p
+            class="absolute -bottom-28 right-8 font-hand text-xl text-primary-800 md:-bottom-[100px] md:right-[40%] lg:-bottom-10 lg:-right-28 lg:text-white xl:top-14 xl:-right-64 xl:text-2xl xl:text-primary-100"
+          >
+            <img
+              src="/images/arrow-up.svg"
+              class="absolute left-1/2 -top-14 h-12 -translate-x-1/2 lg:-left-10 lg:top-0 lg:-rotate-90 xl:hidden"
+              aria-hidden="true"
+              alt="Arrow up"
+            />
+            <img
+              src="/images/arrow-left.svg"
+              class="hidden xl:absolute xl:-left-24 xl:-top-10 xl:block"
+              aria-hidden="true"
+              alt="Arrow left"
+            />
+            <span>It's free!</span>
+          </p>
+        </div>
+
+        <!-- Device Mockup (you can replace the app screenshot in the Figma file) -->
+        <div
+          class="col-span-1 h-40 md:col-start-2 md:row-span-3 md:row-start-1 md:h-52 md:self-end md:justify-self-center lg:h-64 xl:h-72"
+        >
+          <picture>
+            <source
+              srcset="
+                /images/device-mockup-396w.webp 396w,
+                /images/device-mockup-669w.webp 669w
+              "
+              sizes="(max-width: 1024px) 284px, 320px"
+              type="image/webp"
+            />
+            <source
+              srcset="
+                /images/device-mockup-396w.png 396w,
+                /images/device-mockup-669w.png 669w
+              "
+              sizes="(max-width: 1024px) 284px, 320px"
+              type="image/png"
+            />
+            <img
+              class="h-full translate-x-1 translate-y-20 scale-[2] sm:translate-x-0 md:translate-y-6 md:scale-[2]"
+              srcset="
+                /images/device-mockup-396w.png 396w,
+                /images/device-mockup-669w.png 669w
+              "
+              sizes="(max-width: 1024px) 284px, 320px"
+              src="/images/device-mockup-669w.png"
+              alt="Device mockup showcasing the app screen"
+            />
+          </picture>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION: @Features -->
+    <div id="features" class="px-4 pt-40 md:px-8">
+      <div class="mx-auto max-w-lg md:max-w-3xl lg:max-w-4xl xl:max-w-5xl">
+        <div class="mb-10 text-center md:mb-16 md:text-left lg:mb-20 xl:mb-28">
+          <span class="section-subheading">Features</span>
+          <h2 class="section-heading">
+            Everything you asked for, in a single package.
+          </h2>
+        </div>
+
+        <!-- Feature cards -->
+        <div
+          class="grid gap-10 text-center md:grid-cols-2 md:gap-y-14 md:text-left lg:gap-x-14 lg:gap-y-20 xl:gap-x-20 xl:gap-y-24"
+        >
+          <div
+            class="grid items-center justify-items-center gap-4 md:justify-items-start lg:gap-5 xl:grid-cols-[80px_1fr] xl:items-start xl:gap-x-7"
+          >
+            <img
+              src="/images/icons/credit-card.svg"
+              class="h-14 w-14 lg:h-16 lg:w-16 xl:h-20 xl:w-20"
+              alt="Credit card icon"
+            />
+            <div class="xl:col-start-2">
+              <p class="mb-4 font-bold text-gray-800 lg:mb-5 lg:text-xl">
+                Multiple payment methods
+              </p>
+              <p class="leading-relaxed text-gray-600 xl:leading-loose">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id amet
+                ultrices eu eu feugiat mattis nullam ultricies consectetur adip.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="grid items-center justify-items-center gap-4 md:justify-items-start lg:gap-5 xl:grid-cols-[80px_1fr] xl:items-start xl:gap-x-7"
+          >
+            <img
+              src="/images/icons/download.svg"
+              class="h-14 w-14 lg:h-16 lg:w-16 xl:h-20 xl:w-20"
+              alt="Download icon"
+            />
+            <div class="xl:col-start-2">
+              <p class="mb-4 font-bold text-gray-800 lg:mb-5 lg:text-xl">
+                Download &amp; offline support
+              </p>
+              <p class="leading-relaxed text-gray-600 xl:leading-loose">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id amet
+                ultrices eu eu feugiat mattis nullam ultricies consectetur adip.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="grid items-center justify-items-center gap-4 md:justify-items-start lg:gap-5 xl:grid-cols-[80px_1fr] xl:items-start xl:gap-x-7"
+          >
+            <img
+              src="/images/icons/shield.svg"
+              class="h-14 w-14 lg:h-16 lg:w-16 xl:h-20 xl:w-20"
+              alt="Shield icon"
+            />
+            <div class="xl:col-start-2">
+              <p class="mb-4 font-bold text-gray-800 lg:mb-5 lg:text-xl">
+                Secure from front to back
+              </p>
+              <p class="leading-relaxed text-gray-600 xl:leading-loose">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id amet
+                ultrices eu eu feugiat mattis nullam ultricies consectetur adip.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="grid items-center justify-items-center gap-4 md:justify-items-start lg:gap-5 xl:grid-cols-[80px_1fr] xl:items-start xl:gap-x-7"
+          >
+            <img
+              src="/images/icons/users.svg"
+              class="h-14 w-14 lg:h-16 lg:w-16 xl:h-20 xl:w-20"
+              alt="Users icon"
+            />
+            <div class="xl:col-start-2">
+              <p class="mb-4 font-bold text-gray-800 lg:mb-5 lg:text-xl">
+                Invite all your friends &amp; family
+              </p>
+              <p class="leading-relaxed text-gray-600 xl:leading-loose">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id amet
+                ultrices eu eu feugiat mattis nullam ultricies consectetur adip.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="mt-20 h-[1px] w-full bg-[#E2E8F0] md:mt-24 lg:mt-32"></div>
+
+    <!-- SECTION: @How It Works -->
+    <div id="how-it-works" class="px-4 pt-20 md:pt-24 lg:pt-32">
+      <div class="mx-auto max-w-[550px] md:max-w-3xl lg:max-w-4xl xl:max-w-5xl">
+        <div class="mb-12 md:mb-16 lg:mb-20 xl:mb-28">
+          <span class="section-subheading">How It Works</span>
+          <h2 class="section-heading">
+            Don&apos;t worry, getting started is more easier than ever
+          </h2>
+        </div>
+
+        <!-- Tabs -->
+        <div
+          class="tabs mb-10 flex rounded-lg bg-gray-100 text-gray-300 shadow-sm sm:hidden"
+        >
+          <button
+            class="active-tab tab flex-1 border-r-2 border-gray-200 py-2 font-bold transition"
+            data-step="1"
+          >
+            1
+          </button>
+          <button
+            class="tab flex-1 border-r-2 border-gray-200 py-2 font-bold transition"
+            data-step="2"
+          >
+            2
+          </button>
+          <button class="tab flex-1 py-2 font-bold transition" data-step="3">
+            3
+          </button>
+        </div>
+
+        <!-- Steps Wrapper -->
+        <!--
+          @NOTE: In mobile, the step cards in this wrapper div are positioned absolute. This
+          means they have no height as far as the content that follows this div is
+          concerned. For this reason, the "min-h-[570px]" class is given to this
+          wrapper div so that the contents that follow this div can be pushed below.
+          After you update the contents of the step cards, make sure to inspect the
+          card elements in the browser devtools and update the min-h-[570px] class by
+          replacing 570px with the step card that has the largest height.
+        -->
+        <div
+          class="relative min-h-[570px] sm:min-h-max sm:space-y-16 md:space-y-20 md:leading-relaxed lg:space-y-24 lg:leading-loose xl:space-y-28"
+        >
+          <!-- How It Works: Step #1 -->
+          <div
+            class="step absolute top-0 left-0 grid justify-items-start gap-5 transition duration-500 sm:static sm:grid-cols-[220px_1fr] sm:items-start sm:gap-7 md:grid-cols-[2fr_3fr] md:gap-10 lg:grid-cols-[3fr_4fr] lg:items-center lg:gap-24"
+            data-step="1"
+          >
+            <h3 class="font-bold text-primary-800 sm:hidden">
+              <span class="text-primary-400">1.</span> Create an account
+            </h3>
+            <picture>
+              <source srcset="/images/step-1.webp" type="image/webp" />
+              <source srcset="/images/step-1.jpg" type="image/jpeg" />
+              <img
+                src="/images/step-1.jpg"
+                class="sm:row-start-1 sm:max-w-full"
+                alt="Step 1: Create an account"
+              />
+            </picture>
+
+            <div class="space-y-5 sm:col-start-2 lg:space-y-7">
+              <h3
+                class="hidden font-bold text-primary-800 sm:block md:text-lg lg:text-xl xl:text-2xl"
+              >
+                <span class="text-primary-400">1.</span> Create an account
+              </h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id amet
+                ultrices eu eu feugiat mattis nullam ultricies. Id amet ultrices
+                eu eu feugiat mattis nullam ultricies amet ultrices. eu eu
+                feugiat .
+              </p>
+              <button class="btn-primary">Sign up now</button>
+            </div>
+          </div>
+
+          <!-- How It Works: Step #2 -->
+          <div
+            class="step inactive-step absolute top-0 left-0 grid justify-items-start gap-5 transition duration-500 sm:pointer-events-auto sm:visible sm:static sm:static sm:grid-cols-[1fr_220px] sm:items-start sm:gap-6 sm:opacity-100 md:grid-cols-[3fr_2fr] md:gap-10 lg:grid-cols-[4fr_3fr] lg:items-center lg:gap-24"
+            data-step="2"
+          >
+            <h3 class="font-bold text-primary-800 sm:hidden">
+              <span class="text-primary-400">2.</span> Follow your favorite
+              topics
+            </h3>
+            <picture>
+              <source srcset="/images/step-2.webp" type="image/webp" />
+              <source srcset="/images/step-2.jpg" type="image/jpeg" />
+              <img
+                src="/images/step-2.jpg"
+                class="sm:col-start-2 sm:max-w-full"
+                alt="Step 2: Follow your favorite topics"
+              />
+            </picture>
+            <div class="space-y-5 sm:col-start-1 sm:row-start-1 lg:space-y-7">
+              <h3
+                class="hidden font-bold text-primary-800 sm:block md:text-lg lg:text-xl xl:text-2xl"
+              >
+                <span class="text-primary-400">2.</span> Follow your favorite
+                topics
+              </h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id amet
+                ultrices eu eu feugiat mattis nullam ultricies. Id amet ultrices
+                eu eu feugiat mattis nullam ultricies amet ultrices. eu eu
+                feugiat.
+              </p>
+              <button class="btn-primary">Get started</button>
+            </div>
+          </div>
+
+          <!-- How It Works: Step #3 -->
+          <div
+            class="step inactive-step absolute top-0 left-0 grid justify-items-start gap-5 transition duration-500 sm:pointer-events-auto sm:visible sm:static sm:static sm:grid-cols-[220px_1fr] sm:items-start sm:gap-6 sm:opacity-100 md:grid-cols-[2fr_3fr] md:gap-10 lg:grid-cols-[3fr_4fr] lg:items-center lg:gap-24"
+            data-step="3"
+          >
+            <h3 class="font-bold text-primary-800 sm:hidden">
+              <span class="text-primary-400">3.</span> And you're done, enjoy
+              your feed!
+            </h3>
+            <picture>
+              <source srcset="/images/step-3.webp" type="image/webp" />
+              <source srcset="/images/step-3.jpg" type="image/jpeg" />
+              <img
+                src="/images/step-3.jpg"
+                class="sm:row-start-1 sm:max-w-full"
+                alt="Step 3: And you're done, enjoy your feed!"
+              />
+            </picture>
+            <div class="space-y-5 sm:col-start-2 lg:space-y-7">
+              <h3
+                class="hidden font-bold text-primary-800 sm:block md:text-lg lg:text-xl xl:text-2xl"
+              >
+                <span class="text-primary-400">3.</span> And you're done, enjoy
+                your feed!
+              </h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id amet
+                ultrices eu eu feugiat mattis nullam ultricies. Id amet ultrices
+                eu eu feugiat mattis nullam ultricies amet ultrices. eu eu
+                feugiat .
+              </p>
+              <button class="btn-primary">Sign in now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION: @Data Points -->
+    <div
+      class="mt-20 bg-gradient-to-br from-primary-500 to-primary-700 py-16 text-primary-50 md:mt-24 lg:mt-32 lg:py-20 xl:py-24"
+    >
+      <!-- Data points wrapper -->
+      <div
+        class="mx-auto grid items-center justify-items-center gap-14 sm:max-w-xl sm:grid-cols-2 sm:gap-x-0 lg:max-w-4xl lg:grid-cols-4 lg:gap-x-24 xl:max-w-6xl"
+      >
+        <!-- Data point 1 -->
+        <div class="flex flex-col items-center gap-3 lg:gap-4">
+          <img
+            src="/images/icons/dp-users.svg"
+            class="h-14 w-14 lg:h-20 lg:w-20"
+            alt="Users icon"
+          />
+          <p class="pc-users text-2xl font-bold lg:text-3xl xl:text-4xl">
+            1200
+          </p>
+          <p class="text-primary-100 lg:text-lg xl:text-xl">Users signed up</p>
+        </div>
+
+        <!-- Data point 2 -->
+        <div class="flex flex-col items-center gap-3 lg:gap-4">
+          <img
+            src="/images/icons/dp-download.svg"
+            class="h-14 w-14 lg:h-20 lg:w-20"
+            alt="Download icon"
+          />
+          <p class="pc-downloads text-2xl font-bold lg:text-3xl xl:text-4xl">
+            8000
+          </p>
+          <p class="text-primary-100 lg:text-lg xl:text-xl">Downloads</p>
+        </div>
+
+        <!-- Data point 3 -->
+        <div class="flex flex-col items-center gap-3 lg:gap-4">
+          <img
+            src="/images/icons/dp-coffee.svg"
+            class="h-14 w-14 lg:h-20 lg:w-20"
+            alt="Coffee icon"
+          />
+          <p class="pc-coffee text-2xl font-bold lg:text-3xl xl:text-4xl">
+            189
+          </p>
+          <p class="text-primary-100 lg:text-lg xl:text-xl">Cups of coffee</p>
+        </div>
+
+        <!-- Data point 4 -->
+        <div class="flex flex-col items-center gap-3 lg:gap-4">
+          <img
+            src="/images/icons/dp-star.svg"
+            class="h-14 w-14 lg:h-20 lg:w-20"
+            alt="Star icon"
+          />
+          <p class="pc-reviews text-2xl font-bold lg:text-3xl xl:text-4xl">
+            430
+          </p>
+          <p class="text-primary-100 lg:text-lg xl:text-xl">Reviews received</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION: @Testimonials -->
+    <div id="testimonials" class="pt-20 md:pt-24 lg:pt-32">
+      <div class="mx-auto max-w-lg md:max-w-3xl lg:max-w-4xl xl:max-w-5xl">
+        <div class="mb-10 text-center md:mb-16 lg:mb-20 xl:mb-24">
+          <span class="section-subheading">Testimonials</span>
+          <h2 class="section-heading">What our customers say about us</h2>
+        </div>
+
+        <div class="px-4">
+          <!-- Swiper for testimonials -->
+          <div class="testimonials-swiper">
+            <div class="swiper-wrapper">
+              <!-- Slide #1 -->
+              <!-- Styling of "swiper-slide" is done in style.css file -->
+              <div class="swiper-slide">
+                <img
+                  src="/images/icons/apos.svg"
+                  alt="Apos icon"
+                  class="h-6 w-6 md:h-8 md:w-8"
+                />
+                <p class="text-gray-800 md:leading-relaxed lg:leading-loose">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Scelerisque cras nec semper sed dolor elementum etiam
+                  elementum et. Scelerisque diam viverra sit nam. Posuere et
+                  magna ac sit iaculis posuere adipiscing laoreet.
+                </p>
+                <div class="mt-auto flex items-center gap-3 md:gap-4">
+                  <picture>
+                    <source
+                      srcset="/images/customer-1.webp"
+                      type="image/webp"
+                    />
+                    <source srcset="/images/customer-1.png" type="image/png" />
+                    <img
+                      src="/images/customer-1.png"
+                      alt="Customer avatar"
+                      class="h-14 w-14 rounded-full border border-primary-300 md:h-16 md:w-16"
+                    />
+                  </picture>
+
+                  <div class="md:space-y-1">
+                    <p class="font-bold text-primary-800">Helen Banks</p>
+                    <p class="text-sm text-primary-400 lg:text-base">
+                      Startup Founder
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide #2 -->
+              <div class="swiper-slide">
+                <img
+                  src="/images/icons/apos.svg"
+                  alt="Apos icon"
+                  class="h-6 w-6 md:h-8 md:w-8"
+                />
+                <p class="text-gray-800 md:leading-relaxed lg:leading-loose">
+                  Sit amet consectetur adipisicing elit. Excepturi magni ad ipsa
+                  suscipit tempora aliquam quae inventore quis deserunt culpa,
+                  reprehenderit, nam vitae. Iure voluptatem quas ullam quis
+                  aliquid nostrum!
+                </p>
+                <div class="mt-auto flex items-center gap-3 md:gap-4">
+                  <picture>
+                    <source
+                      srcset="/images/customer-2.webp"
+                      type="image/webp"
+                    />
+                    <source srcset="/images/customer-2.png" type="image/png" />
+                    <img
+                      src="/images/customer-2.png"
+                      alt="Customer avatar"
+                      class="h-14 w-14 rounded-full border border-primary-300 md:h-16 md:w-16"
+                    />
+                  </picture>
+
+                  <div class="md:space-y-1">
+                    <p class="font-bold text-primary-800">Katherine Lane</p>
+                    <p class="text-sm text-primary-400 lg:text-base">
+                      UI/UX Designer
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide #3 -->
+              <div class="swiper-slide">
+                <img
+                  src="/images/icons/apos.svg"
+                  alt="Apos icon"
+                  class="h-6 w-6 md:h-8 md:w-8"
+                />
+                <p class="text-gray-800 md:leading-relaxed lg:leading-loose">
+                  Posuere et magna ac sit iaculis posuere adipiscing laoreet.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Scelerisque cras nec semper sed dolor elementum etiam. Lorem
+                  ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+                <div class="mt-auto flex items-center gap-3 md:gap-4">
+                  <picture>
+                    <source
+                      srcset="/images/customer-3.webp"
+                      type="image/webp"
+                    />
+                    <source srcset="/images/customer-3.png" type="image/png" />
+                    <img
+                      src="/images/customer-3.png"
+                      alt="Customer avatar"
+                      class="h-14 w-14 rounded-full border border-primary-300 md:h-16 md:w-16"
+                    />
+                  </picture>
+
+                  <div class="md:space-y-1">
+                    <p class="font-bold text-primary-800">William Smith</p>
+                    <p class="text-sm text-primary-400 lg:text-base">
+                      Product Manager
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide #4 -->
+              <div class="swiper-slide">
+                <img
+                  src="/images/icons/apos.svg"
+                  alt="Apos icon"
+                  class="h-6 w-6 md:h-8 md:w-8"
+                />
+                <p class="text-gray-800 md:leading-relaxed lg:leading-loose">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Scelerisque cras nec semper sed dolor elementum etiam
+                  elementum et. Scelerisque diam viverra sit nam. Posuere et
+                  magna ac sit iaculis posuere adipiscing laoreet.
+                </p>
+                <div class="mt-auto flex items-center gap-3 md:gap-4">
+                  <picture>
+                    <source
+                      srcset="/images/customer-1.webp"
+                      type="image/webp"
+                    />
+                    <source srcset="/images/customer-1.png" type="image/png" />
+                    <img
+                      src="/images/customer-1.png"
+                      alt="Customer avatar"
+                      class="h-14 w-14 rounded-full border border-primary-300 md:h-16 md:w-16"
+                    />
+                  </picture>
+
+                  <div class="md:space-y-1">
+                    <p class="font-bold text-primary-800">Helen Banks</p>
+                    <p class="text-sm text-primary-400 lg:text-base">
+                      Startup Founder
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide #5 -->
+              <div class="swiper-slide">
+                <img
+                  src="/images/icons/apos.svg"
+                  alt="Apos icon"
+                  class="h-6 w-6 md:h-8 md:w-8"
+                />
+                <p class="text-gray-800 md:leading-relaxed lg:leading-loose">
+                  Sit amet consectetur adipisicing elit. Excepturi magni ad ipsa
+                  suscipit tempora aliquam quae inventore quis deserunt culpa,
+                  reprehenderit, nam vitae. Iure voluptatem quas ullam quis
+                  aliquid nostrum!
+                </p>
+                <div class="mt-auto flex items-center gap-3 md:gap-4">
+                  <picture>
+                    <source
+                      srcset="/images/customer-2.webp"
+                      type="image/webp"
+                    />
+                    <source srcset="/images/customer-2.png" type="image/png" />
+                    <img
+                      src="/images/customer-2.png"
+                      alt="Customer avatar"
+                      class="h-14 w-14 rounded-full border border-primary-300 md:h-16 md:w-16"
+                    />
+                  </picture>
+
+                  <div class="md:space-y-1">
+                    <p class="font-bold text-primary-800">Katherine Lane</p>
+                    <p class="text-sm text-primary-400 lg:text-base">
+                      UI/UX Designer
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide #6 -->
+              <div class="swiper-slide">
+                <img
+                  src="/images/icons/apos.svg"
+                  alt="Apos icon"
+                  class="h-6 w-6 md:h-8 md:w-8"
+                />
+                <p class="text-gray-800 md:leading-relaxed lg:leading-loose">
+                  Posuere et magna ac sit iaculis posuere adipiscing laoreet.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Scelerisque cras nec semper sed dolor elementum etiam. Lorem
+                  ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+                <div class="mt-auto flex items-center gap-3 md:gap-4">
+                  <picture>
+                    <source
+                      srcset="/images/customer-3.webp"
+                      type="image/webp"
+                    />
+                    <source srcset="/images/customer-3.png" type="image/png" />
+                    <img
+                      src="/images/customer-3.png"
+                      alt="Customer avatar"
+                      class="h-14 w-14 rounded-full border border-primary-300 md:h-16 md:w-16"
+                    />
+                  </picture>
+
+                  <div class="md:space-y-1">
+                    <p class="font-bold text-primary-800">William Smith</p>
+                    <p class="text-sm text-primary-400 lg:text-base">
+                      Product Manager
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="testimonials-swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="mt-20 h-[1px] w-full bg-[#E2E8F0] md:mt-24 lg:mt-32"></div>
+
+    <!-- SECTION: @Pricing -->
+    <div id="pricing" class="pt-20 md:pt-24 lg:pt-32">
+      <div class="mx-auto max-w-lg md:max-w-3xl lg:max-w-[95%] xl:max-w-7xl">
+        <div class="mb-10 text-center md:mb-16 lg:mb-20 xl:mb-24">
+          <span class="section-subheading">Pricing</span>
+          <h2 class="section-heading">We have a price for every use case</h2>
+        </div>
+
+        <div class="px-4">
+          <!-- Swiper for pricing -->
+          <div class="pricing-swiper">
+            <div
+              class="swiper-wrapper md:static md:flex-wrap md:items-center md:justify-center md:gap-10 lg:flex-nowrap lg:gap-4 xl:gap-8"
+            >
+              <!-- Slide #1: Hobby Pricing Plan -->
+              <!-- Styling of "swiper-slide" is done in style.css file -->
+              <div class="swiper-slide">
+                <p
+                  class="mx-auto mb-8 w-max rounded-full bg-accent-500 py-2 px-4 text-sm font-semibold uppercase tracking-widest text-primary-50"
+                >
+                  Starter Plan
+                </p>
+                <p class="mb-4 text-xl font-bold xl:text-2xl">Hobby</p>
+                <p
+                  class="mb-5 text-4xl font-bold uppercase tracking-wide xl:text-5xl"
+                >
+                  Free
+                </p>
+                <button class="btn-primary mb-6 w-full font-semibold">
+                  Get started
+                </button>
+                <div class="mb-6 h-[1px] w-full bg-[#E2E8F0]"></div>
+                <ul class="flex flex-col gap-6">
+                  <li class="flex items-center gap-3">
+                    <span>
+                      <img
+                        src="/images/icons/icon-check.svg"
+                        alt="Checkmark icon"
+                      />
+                    </span>
+                    <span>2GB of storage</span>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <span>
+                      <img
+                        src="/images/icons/icon-check.svg"
+                        alt="Checkmark icon"
+                      />
+                    </span>
+                    <span>100 contacts</span>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <span>
+                      <img
+                        src="/images/icons/icon-check.svg"
+                        alt="Checkmark icon"
+                      />
+                    </span>
+                    <span>Max. 2h time limit / day</span>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <span>
+                      <img
+                        src="/images/icons/icon-check.svg"
+                        alt="Checkmark icon"
+                      />
+                    </span>
+                    <span>Lorem ipsum dolor</span>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <span>
+                      <img
+                        src="/images/icons/icon-check.svg"
+                        alt="Checkmark icon"
+                      />
+                    </span>
+                    <span>Lorem ipsum dolor</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Slide #2: Personal Pricing Plan -->
+              <div
+                class="swiper-slide swiper-slide-big bg-gradient-to-br from-primary-500 to-primary-700"
+              >
+                <p
+                  class="mx-auto mb-8 w-max rounded-full bg-accent-500 py-2 px-4 text-sm font-semibold uppercase tracking-widest text-primary-50"
+                >
+                  Most Popular
+                </p>
+                <p class="mb-4 text-xl font-bold text-primary-50 xl:text-2xl">
+                  Personal
+                </p>
+                <p
+                  class="mb-5 flex items-baseline justify-center gap-[2px] text-4xl font-bold text-white"
+                >
+                  <span class="text-xl">$</span>
+                  <span class="text-4xl xl:text-6xl">69</span>
+                  <span class="text-xl font-normal text-primary-100">/mo</span>
+                </p>
+                <button
+                  class="btn-primary mb-6 w-full bg-white bg-none font-bold text-primary-800"
+                >
+                  Get started
+                </button>
+                <div class="mb-6 h-[1px] w-full bg-primary-500"></div>
+                <ul class="flex flex-col gap-6 text-primary-50">
+                  <li class="flex items-center gap-3">
+                    <span>
+                      <img
+                        src="/images/icons/icon-check.svg"
+                        alt="Checkmark icon"
+                      />
+                    </span>
+                    <span>Everything from Hobby</span>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <span>
+                      <img
+                        src="/images/icons/icon-check.svg"
+                        alt="Checkmark icon"
+                      />
+                    </span>
+                    <span>100GB of storage</span>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <span>
+                      <img
+                        src="/images/icons/icon-check.svg"
+                        alt="Checkmark icon"
+                      />
+                    </span>
+                    <span>Unlimited contacts</span>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <span>
+                      <img
+                        src="/images/icons/icon-check.svg"
+                        alt="Checkmark icon"
+                      />
+                    </span>
+                    <span>Multiple connections</span>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <span>
+                      <img
+                        src="/images/icons/icon-check.svg"
+                        alt="Checkmark icon"
+                      />
+                    </span>
+                    <span>No time limit</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Slide #3: Professional Pricing Plan -->
+              <div class="swiper-slide">
+                <p
+                  class="mx-auto mb-8 w-max rounded-full bg-accent-500 py-2 px-4 text-sm font-semibold uppercase tracking-widest text-primary-50"
+                >
+                  Team Plan
+                </p>
+                <p class="mb-4 text-xl font-bold xl:text-2xl">Professional</p>
+                <p
+                  class="mb-5 flex items-baseline justify-center gap-[2px] text-4xl font-bold"
+                >
+                  <span class="text-xl">$</span>
+                  <span class="text-4xl xl:text-6xl">99</span>
+                  <span class="text-xl font-normal text-gray-400">/mo</span>
+                </p>
+                <button class="btn-primary mb-6 w-full font-semibold">
+                  Get started
+                </button>
+                <div class="mb-6 h-[1px] w-full bg-[#E2E8F0]"></div>
+                <ul class="flex flex-col gap-6">
+                  <li class="flex items-center gap-3">
+                    <span>
+                      <img
+                        src="/images/icons/icon-check.svg"
+                        alt="Checkmark icon"
+                      />
+                    </span>
+                    <span>Everything from Personal</span>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <span>
+                      <img
+                        src="/images/icons/icon-check.svg"
+                        alt="Checkmark icon"
+                      />
+                    </span>
+                    <span>Unlimited contacts</span>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <span>
+                      <img
+                        src="/images/icons/icon-check.svg"
+                        alt="Checkmark icon"
+                      />
+                    </span>
+                    <span>Slack integration</span>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <span>
+                      <img
+                        src="/images/icons/icon-check.svg"
+                        alt="Checkmark icon"
+                      />
+                    </span>
+                    <span>Lorem ipsum dolor</span>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <span>
+                      <img
+                        src="/images/icons/icon-check.svg"
+                        alt="Checkmark icon"
+                      />
+                    </span>
+                    <span>Lorem ipsum dolor</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION: @Newsletter -->
+    <div
+      class="mt-20 bg-primary-100 px-4 py-20 text-center md:mt-24 md:text-left lg:mt-32 lg:py-24"
+    >
+      <div class="mx-auto max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-6xl">
+        <h2 class="section-heading mb-6 leading-tight">
+          <span class="text-gray-800">Join our newsletter to keep up with</span>
+          <br class="hidden md:block" />
+          <span class="text-primary-500">latest developments</span>
+        </h2>
+        <p class="mb-8 text-gray-800 lg:mb-10 lg:text-lg">
+          We promise we don’t spam. Only emails related to our product will be
+          sent once a month.
+        </p>
+        <div class="flex flex-col items-stretch gap-3 md:relative md:max-w-lg">
+          <input
+            type="text"
+            class="block rounded-lg py-3 px-4"
+            placeholder="youremail@example.com"
+          />
+          <button
+            class="btn-primary flex items-center justify-center gap-3 font-semibold md:absolute md:right-0 md:top-0 md:rounded-tl-none md:rounded-bl-none"
+          >
+            <span>Join</span>
+            <img src="/images/icons/rarr.svg" alt="Right arrow" />
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION: @CTA -->
+    <div
+      class="bg-gradient-to-br from-primary-500 to-primary-700 py-20 px-4 lg:py-24"
+    >
+      <div
+        class="mx-auto flex max-w-lg flex-col gap-8 md:max-w-3xl md:flex-row md:items-center md:justify-between lg:max-w-4xl xl:max-w-5xl"
+      >
+        <h2
+          class="text-center text-2xl font-semibold text-primary-50 lg:text-3xl"
+        >
+          Start your journey now.
+        </h2>
+        <div class="flex items-center justify-center gap-4">
+          <a href="#!">
+            <picture>
+              <source srcset="/images/app-store.webp" type="image/webp" />
+              <source srcset="/images/app-store.png" type="image/png" />
+              <img
+                src="/images/app-store.png"
+                alt="Download on App Store"
+                class="h-10 lg:h-12 xl:h-14"
+              />
+            </picture>
+          </a>
+          <a href="#!">
+            <picture>
+              <source srcset="/images/google-play.webp" type="image/webp" />
+              <source srcset="/images/google-play.png" type="image/png" />
+              <img
+                src="/images/google-play.png"
+                alt="Download on Google Play"
+                class="h-10 lg:h-12 xl:h-14"
+              />
+            </picture>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION: @Footer -->
+    <footer
+      class="px-4 pt-16 pb-28 text-sm md:text-base lg:px-10 lg:py-20 xl:py-28"
+    >
+      <div
+        class="mx-auto grid max-w-lg sm:grid-cols-2 sm:gap-y-24 md:max-w-3xl md:gap-y-20 lg:max-w-7xl"
+      >
+        <!-- Copyright & address information -->
+        <div class="mb-12 text-gray-500">
+          <a href="#" class="mb-8 block opacity-90">
+            <img
+              src="/images/logo.svg"
+              class="w-20 md:w-24"
+              alt="Nestor app logo"
+            />
+          </a>
+          <p class="mb-3">
+            Copyright &copy; Nestor Inc. <span class="year"></span>
+          </p>
+          <p>2583 Short Street, Austin TX</p>
+        </div>
+
+        <!-- Social links -->
+        <div class="mb-14 flex items-center gap-7 sm:row-start-2">
+          <a href="#!">
+            <img
+              src="/images/icons/facebook.svg"
+              alt="Facebook icon"
+              class="h-9 w-9"
+            />
+          </a>
+          <a href="#!">
+            <img
+              src="/images/icons/linkedin.svg"
+              alt="LinkedIn icon"
+              class="h-9 w-9"
+            />
+          </a>
+          <a href="#!">
+            <img
+              src="/images/icons/twitter.svg"
+              alt="Twitter icon"
+              class="h-9 w-9"
+            />
+          </a>
+          <a href="#!">
+            <img
+              src="/images/icons/instagram.svg"
+              alt="Instagram icon"
+              class="h-9 w-9"
+            />
+          </a>
+        </div>
+
+        <!-- Sitemap -->
+        <div
+          class="flex items-start gap-10 text-gray-500 md:justify-end md:gap-16"
+        >
+          <ul class="flex flex-col items-start gap-6">
+            <li>
+              <a href="#features">Features</a>
+            </li>
+            <li>
+              <a href="#how-it-works">How it works</a>
+            </li>
+            <li>
+              <a href="#testimonials">Testimonials</a>
+            </li>
+            <li>
+              <a href="#pricing">Pricing</a>
+            </li>
+          </ul>
+          <ul class="flex flex-col items-start gap-6">
+            <li>
+              <a href="#!">Blog</a>
+            </li>
+            <li>
+              <a href="#!">Terms of service</a>
+            </li>
+            <li>
+              <a href="#!">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="#!">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/script.js"></script>
+  </body>
+</html>
