@@ -22,7 +22,7 @@ window.addEventListener("load", () => {
 //#region @Navigation - Sticky navigation logic
 
 const header = document.querySelector(".main-header");
-const sectionHero = document.querySelector(".section-hero");
+const sectionHero = document.querySelector(".sticky-observable");
 
 const observer = new IntersectionObserver(
   (entries) => {
@@ -127,7 +127,7 @@ const tabsContainer = document.querySelector(".tabs");
 const tabs = document.querySelectorAll(".tab");
 const steps = document.querySelectorAll(".step");
 
-tabsContainer.addEventListener("click", (event) => {
+tabsContainer?.addEventListener("click", (event) => {
   const tab = event.target.closest(".tab");
 
   if (!tab) return;
@@ -214,33 +214,37 @@ const testimonialsSwiper = new Swiper(".testimonials-swiper", {
   }
 });
 
-// Only autoplay the swiper when testimonials section is visible
-const testimonialsObserver = new IntersectionObserver(
-  (entries) => {
-    const observerEntry = entries[0];
+const testimonialsSection = document.querySelector("#testimonials");
+if (testimonialsSection) {
+  // Only autoplay the swiper when testimonials section is visible
+  const testimonialsObserver = new IntersectionObserver(
+    (entries) => {
+      const observerEntry = entries[0];
 
-    if (observerEntry.isIntersecting) {
-      testimonialsSwiper.autoplay.start();
-    } else {
-      testimonialsSwiper.autoplay.stop();
+      if (observerEntry.isIntersecting) {
+        testimonialsSwiper.autoplay.start();
+      } else {
+        testimonialsSwiper.autoplay.stop();
+      }
+    },
+    {
+      // Observe relative to the viewport, not to another element
+      root: null,
+      // Run the callback as soon as even 1px of the observed element is visible. The
+      // callback is ran if the threshold is passed in one way or the another,
+      // so it will also run when the hero section is completely out of view
+      threshold: 0,
+      // Add margin that is the same height with the nav so that nav doesn't cover
+      // the important sections when it becomes sticky for the first time. If
+      // you're unclear of what this line does, comment out the rootMargin property
+      // and check the sticky margin behavior of the nav, then add back the
+      // rootMargin to see the difference
+      rootMargin: "-64px"
     }
-  },
-  {
-    // Observe relative to the viewport, not to another element
-    root: null,
-    // Run the callback as soon as even 1px of the observed element is visible. The
-    // callback is ran if the threshold is passed in one way or the another,
-    // so it will also run when the hero section is completely out of view
-    threshold: 0,
-    // Add margin that is the same height with the nav so that nav doesn't cover
-    // the important sections when it becomes sticky for the first time. If
-    // you're unclear of what this line does, comment out the rootMargin property
-    // and check the sticky margin behavior of the nav, then add back the
-    // rootMargin to see the difference
-    rootMargin: "-64px"
-  }
-);
-testimonialsObserver.observe(document.querySelector("#testimonials"));
+  );
+  testimonialsObserver.observe(testimonialsSection);
+}
+
 //#endregion
 
 //#region @Pricing = Swiper logic
