@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./index.html", "./src/**/*.js"],
+  content: ["./**/*.html", "./src/**/*.js"],
   theme: {
     extend: {
       backgroundImage: {
@@ -53,5 +53,5 @@ module.exports = {
       }
     }
   },
-  plugins: [require("tailwind-scrollbar")]
+  plugins: [require("tailwind-scrollbar"), require("@tailwindcss/line-clamp")]
 };

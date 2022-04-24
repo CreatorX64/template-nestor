@@ -22,7 +22,7 @@ window.addEventListener("load", () => {
 //#region @Navigation - Sticky navigation logic
 
 const header = document.querySelector(".main-header");
-const sectionHero = document.querySelector(".sticky-observable");
+const stickyObservable = document.querySelector(".sticky-observable");
 
 const observer = new IntersectionObserver(
   (entries) => {
@@ -32,15 +32,15 @@ const observer = new IntersectionObserver(
       // The hero section is out of the viewport, make nav sticky and add margin
       // on top of hero section to eliminate layout shift
       header.classList.add("sticky-nav");
-      sectionHero.classList.add("mt-16");
-      sectionHero.classList.add("lg:mt-20");
-      sectionHero.classList.add("xl:mt-24");
+      stickyObservable.classList.add("mt-16");
+      stickyObservable.classList.add("lg:mt-20");
+      stickyObservable.classList.add("xl:mt-24");
     } else {
       // The hero section is in the viewport, reverse the previous actions
       header.classList.remove("sticky-nav");
-      sectionHero.classList.remove("mt-16");
-      sectionHero.classList.remove("lg:mt-20");
-      sectionHero.classList.remove("xl:mt-24");
+      stickyObservable.classList.remove("mt-16");
+      stickyObservable.classList.remove("lg:mt-20");
+      stickyObservable.classList.remove("xl:mt-24");
     }
   },
   {
@@ -59,7 +59,7 @@ const observer = new IntersectionObserver(
   }
 );
 
-observer.observe(sectionHero);
+observer.observe(stickyObservable);
 
 // Mobile navigation logic
 

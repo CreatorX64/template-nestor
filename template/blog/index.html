@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<!--
+  Only setting "overflow-x-hidden" on the body doesn't work. It should be set
+  on both the html and body elements. Also, overflow-x on the page level only
+  works if there's nothing absolutely positioned in relation to body. That's
+  why we add the "relative" class to the header element below
+-->
+<html lang="en" class="overflow-x-hidden overflow-y-hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Mobile app landing page template for your startup, business, or indie venture."
+    />
+
+    <title>Nestor — Mobile App Landing Page Template</title>
+
+    <!-- Social media tags (see https://ogp.me/) -->
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="/src/style.css" />
+
+    <!-- Favicons -->
+    <!-- You can generate favicons with your logo at: https://www.favicon-generator.org/ -->
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="/favicons/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="/favicons/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="/favicons/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="/favicons/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/favicons/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/favicons/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/favicons/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/favicons/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicons/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/favicons/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/favicons/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+  <!-- Body is not scrollable by default. We enable scrolling & remove loading
+    animation once the page loads. See script.js -->
+  <body
+    class="overflow-x-hidden overflow-y-hidden bg-gray-50 scrollbar-thin scrollbar-track-primary-50 scrollbar-thumb-primary-700"
+  >
+    <!-- Loading screen -->
+    <div class="loading-screen relative">
+      <div class="absolute top-0 left-0 z-[100] h-screen w-full bg-white">
+        <img
+          class="absolute top-1/2 left-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 lg:h-auto lg:w-auto"
+          src="/images/loading-spinner.svg"
+          alt="Loading..."
+          aria-label="Loading website..."
+        />
+      </div>
+    </div>
+
+    <!-- SECTION: @Navigation -->
+    <header
+      class="main-header relative flex h-16 items-end bg-white px-4 py-[14px] md:items-center md:bg-gray-50 md:px-8 lg:h-20 lg:py-10 lg:px-16 xl:h-24"
+    >
+      <div
+        class="mx-auto flex max-w-lg flex-1 items-center justify-between md:max-w-full lg:max-w-7xl"
+      >
+        <!-- Logo -->
+        <a href="/">
+          <img
+            src="/images/logo.svg"
+            class="w-20 md:w-28 lg:w-36"
+            alt="Nestor app logo"
+          />
+        </a>
+
+        <!-- Navigation menu -->
+        <nav
+          class="nav-mobile pointer-events-none invisible absolute top-0 left-0 z-10 flex h-screen w-full translate-x-full transform items-center justify-center bg-white/95 opacity-0 backdrop-blur-sm transition duration-500 ease-in-out md:pointer-events-auto md:visible md:static md:z-auto md:h-auto md:translate-x-0 md:justify-end md:bg-gray-50 md:opacity-100 md:backdrop-blur-none"
+        >
+          <ul
+            class="flex flex-col gap-8 text-center md:flex-row md:gap-10 lg:gap-14"
+          >
+            <li>
+              <a href="/#features" class="nav-link">Features</a>
+            </li>
+            <li>
+              <a href="/#how-it-works" class="nav-link">How it works</a>
+            </li>
+            <li>
+              <a href="/#testimonials" class="nav-link">Testimonials</a>
+            </li>
+            <li>
+              <a href="/#pricing" class="nav-link">Pricing</a>
+            </li>
+            <li class="mt-2 md:mt-0">
+              <a href="#!" class="btn-primary">Get started</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Mobile navigation open/close button -->
+        <button
+          class="btn-mobile z-20 border-none bg-none outline-none md:pointer-events-none md:hidden"
+          aria-label="Toggle navigation menu"
+        >
+          <img
+            class="icon-open"
+            src="/images/icons/hamburger.svg"
+            alt="Mobile menu icon"
+          />
+          <img
+            class="icon-close hidden"
+            src="/images/icons/close.svg"
+            alt="Mobile menu close icon"
+          />
+        </button>
+      </div>
+    </header>
+
+    <!-- SECTION: @Blog -->
+    <main>
+      <header
+        class="sticky-observable bg-gradient-to-br from-primary-500 to-primary-700 py-8 md:py-12 lg:py-16 xl:py-20"
+      >
+        <h1
+          class="text-center text-xl font-bold text-primary-50 md:text-2xl lg:text-3xl xl:text-4xl"
+        >
+          Blog
+        </h1>
+      </header>
+
+      <!-- Blog Posts -->
+      <div
+        class="flex flex-col gap-14 px-4 py-14 sm:mx-auto sm:max-w-[630px] sm:px-6 md:max-w-3xl lg:max-w-4xl lg:gap-16 lg:py-16 xl:gap-20 xl:py-20"
+      >
+        <div class="flex items-start sm:gap-6 lg:gap-12">
+          <img
+            src="/images/placeholder.jpg"
+            class="hidden sm:block sm:max-w-[200px] lg:max-w-[220px]"
+            alt="Placeholder image"
+          />
+          <div>
+            <span class="block text-sm text-gray-500 lg:mb-1"
+              >14 Jun, 2022</span
+            >
+            <a
+              href="/blog/post.html"
+              class="mb-3 w-full text-lg font-bold text-gray-800 transition-opacity line-clamp-1 hover:opacity-90 md:mb-4 lg:mb-6 lg:text-xl"
+            >
+              Best design resources for web developers
+            </a>
+            <p
+              class="mb-3 leading-relaxed text-gray-600 line-clamp-3 md:mb-4 lg:mb-6"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id amet
+              ultrices eu eu feugiat mattis nullam ultricies. Id amet ultrices
+              eu eu feugiat mattis nullam ultricies amet ultrices. eu eu feugiat
+              ultrices. eu eu feugiat mattis nullam ultricies. Id amet ultrices
+              eu eu feugiat mattis nullam ultricies amet ultrices. eu eu feugiat
+              ultrices. eu eu feugiat.
+            </p>
+            <a
+              href="/blog/post.html"
+              class="font-semibold text-primary-500 transition-opacity hover:opacity-90"
+              >Read more →</a
+            >
+          </div>
+        </div>
+        <div class="flex items-start sm:gap-6 lg:gap-12">
+          <img
+            src="/images/placeholder.jpg"
+            class="hidden sm:block sm:max-w-[200px] lg:max-w-[220px]"
+            alt="Placeholder image"
+          />
+          <div>
+            <span class="block text-sm text-gray-500 lg:mb-1"
+              >14 Jun, 2022</span
+            >
+            <a
+              href="/blog/post.html"
+              class="mb-3 w-full text-lg font-bold text-gray-800 transition-opacity line-clamp-1 hover:opacity-90 md:mb-4 lg:mb-6 lg:text-xl"
+            >
+              Beginner&apos;s guide to use our app effectively
+            </a>
+            <p
+              class="mb-3 leading-relaxed text-gray-600 line-clamp-3 md:mb-4 lg:mb-6"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id amet
+              ultrices eu eu feugiat mattis nullam ultricies. Id amet ultrices
+              eu eu feugiat mattis nullam ultricies amet ultrices. eu eu feugiat
+              ultrices. eu eu feugiat mattis nullam ultricies. Id amet ultrices
+              eu eu feugiat mattis nullam ultricies amet ultrices. eu eu feugiat
+              ultrices. eu eu feugiat.
+            </p>
+            <a
+              href="/blog/post.html"
+              class="font-semibold text-primary-500 transition-opacity hover:opacity-90"
+              >Read more →</a
+            >
+          </div>
+        </div>
+        <div class="flex items-start sm:gap-6 lg:gap-12">
+          <img
+            src="/images/placeholder.jpg"
+            class="hidden sm:block sm:max-w-[200px] lg:max-w-[220px]"
+            alt="Placeholder image"
+          />
+          <div>
+            <span class="block text-sm text-gray-500 lg:mb-1"
+              >14 Jun, 2022</span
+            >
+            <a
+              href="/blog/post.html"
+              class="mb-3 w-full text-lg font-bold text-gray-800 transition-opacity line-clamp-1 hover:opacity-90 md:mb-4 lg:mb-6 lg:text-xl"
+            >
+              This is a very very long title that will definitely get cut in
+              half without wrapping to the next line
+            </a>
+            <p
+              class="mb-3 leading-relaxed text-gray-600 line-clamp-3 md:mb-4 lg:mb-6"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id amet
+              ultrices eu eu feugiat mattis nullam ultricies. Id amet ultrices
+              eu eu feugiat mattis nullam ultricies amet ultrices. eu eu feugiat
+              ultrices. eu eu feugiat mattis nullam ultricies. Id amet ultrices
+              eu eu feugiat mattis nullam ultricies amet ultrices. eu eu feugiat
+              ultrices. eu eu feugiat.
+            </p>
+            <a
+              href="/blog/post.html"
+              class="font-semibold text-primary-500 transition-opacity hover:opacity-90"
+              >Read more →</a
+            >
+          </div>
+        </div>
+
+        <a
+          href="#!"
+          class="mt-6 block text-center font-semibold text-gray-500 transition hover:opacity-90 md:mt-8 lg:mt-12"
+        >
+          Load more posts ↓
+        </a>
+      </div>
+    </main>
+
+    <!-- Divider -->
+    <div class="mt-20 h-[1px] w-full bg-[#E2E8F0] md:mt-24 lg:mt-32"></div>
+
+    <!-- SECTION: @Footer -->
+    <footer
+      class="px-4 pt-16 pb-28 text-sm md:text-base lg:px-10 lg:py-20 xl:py-28"
+    >
+      <div
+        class="mx-auto grid max-w-lg sm:grid-cols-2 sm:gap-y-24 md:max-w-3xl md:gap-y-20 lg:max-w-7xl"
+      >
+        <!-- Copyright & address information -->
+        <div class="mb-12 text-gray-500">
+          <a href="/" class="mb-8 block opacity-90">
+            <img
+              src="/images/logo.svg"
+              class="w-20 md:w-24"
+              alt="Nestor app logo"
+            />
+          </a>
+          <p class="mb-3">
+            Copyright &copy; Nestor Inc. <span class="year"></span>
+          </p>
+          <p>2583 Short Street, Austin TX</p>
+        </div>
+
+        <!-- Social links -->
+        <div class="mb-14 flex items-center gap-7 sm:row-start-2">
+          <a href="#!">
+            <img
+              src="/images/icons/facebook.svg"
+              alt="Facebook icon"
+              class="h-9 w-9"
+            />
+          </a>
+          <a href="#!">
+            <img
+              src="/images/icons/linkedin.svg"
+              alt="LinkedIn icon"
+              class="h-9 w-9"
+            />
+          </a>
+          <a href="#!">
+            <img
+              src="/images/icons/twitter.svg"
+              alt="Twitter icon"
+              class="h-9 w-9"
+            />
+          </a>
+          <a href="#!">
+            <img
+              src="/images/icons/instagram.svg"
+              alt="Instagram icon"
+              class="h-9 w-9"
+            />
+          </a>
+        </div>
+
+        <!-- Sitemap -->
+        <div
+          class="flex items-start gap-10 text-gray-500 md:justify-end md:gap-16"
+        >
+          <ul class="flex flex-col items-start gap-6">
+            <li>
+              <a href="/#features">Features</a>
+            </li>
+            <li>
+              <a href="/#how-it-works">How it works</a>
+            </li>
+            <li>
+              <a href="/#testimonials">Testimonials</a>
+            </li>
+          </ul>
+          <ul class="flex flex-col items-start gap-6">
+            <li>
+              <a href="/#pricing">Pricing</a>
+            </li>
+            <li>
+              <a href="blog/index.html">Blog</a>
+            </li>
+            <li>
+              <a href="terms/index.html">Terms of service</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/script.js"></script>
+  </body>
+</html>
