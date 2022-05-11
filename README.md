@@ -1,10 +1,12 @@
 # Nestor — App Landing Page Template
 
+If you're using VS Code, you can use its [Markdown preview feature](https://code.visualstudio.com/docs/languages/markdown#_markdown-preview) to read this file in a nicely formatted way.
+
+If you're not using VS Code, I highly recommend using [Markdown Live Preview](https://markdownlivepreview.com/) to read this file. You can copy the contents of this whole file and paste in that website, it will enhance your reading experience.
+
 This is a website template built for a mobile app landing page. It can be used for other purposes as well, like a product landing page or a SaaS landing page after some customization.
 
 Thanks to Tailwind CSS's configurable nature, many design elements can easily be customized including colors, typography, and spacing. This allows you to take this template anywhere you want.
-
-If you're using VS Code, you can use its [Markdown preview feature](https://code.visualstudio.com/docs/languages/markdown#_markdown-preview) to read this file in a nicely formatted way.
 
 ## Quick Start
 

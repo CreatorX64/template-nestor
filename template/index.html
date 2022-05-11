@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-  Only setting "overflow-x-hidden" on the body doesn't work. It should be set
+  @NOTE: Only setting "overflow-x-hidden" on the body doesn't work. It should be set
   on both the html and body elements. Also, overflow-x on the page level only
   works if there's nothing absolutely positioned in relation to body. That's
   why we add the "relative" class to the header element below
@@ -103,7 +103,7 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
   </head>
-  <!-- Body is not scrollable by default. We enable scrolling & remove loading
+  <!-- @NOTE: Body is not scrollable by default. We enable scrolling & remove loading
     animation once the page loads. See script.js -->
   <body
     class="overflow-x-hidden overflow-y-hidden bg-gray-50 scrollbar-thin scrollbar-track-primary-50 scrollbar-thumb-primary-700"
