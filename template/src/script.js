@@ -25,6 +25,8 @@ window.addEventListener("load", () => {
 
 //#region @Navigation - Sticky nav & mobile nav logic
 
+// Sticky nav logic
+
 const header = document.querySelector(".main-header");
 const stickyObservable = document.querySelector(".sticky-observable");
 
@@ -65,7 +67,7 @@ const observer = new IntersectionObserver(
 
 observer.observe(stickyObservable);
 
-// Mobile navigation logic
+// Mobile nav logic
 
 const mobileNavBtn = document.querySelector(".btn-mobile");
 const mobileNav = document.querySelector(".nav-mobile");
