@@ -76,6 +76,7 @@ Note that if you're using VS Code, you can collapse all the parent HTML tags of 
 
 Here are all the section names you can use with above information:
 
+- Loading screen
 - Navigation
 - Hero
 - Features

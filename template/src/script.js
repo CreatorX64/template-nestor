@@ -6,6 +6,8 @@ import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import "./vendor/modernizr-custom";
 
+//#region @Loading screen - Show & hide loading animation
+
 // Show & Hide loading screen. The loading screen is basically an absolutely
 // positioned <div> element which inludes an SVG loading animation.
 
@@ -19,7 +21,9 @@ window.addEventListener("load", () => {
   document.documentElement.classList.toggle("overflow-y-hidden");
 });
 
-//#region @Navigation - Sticky navigation logic
+//#endregion
+
+//#region @Navigation - Sticky nav & mobile nav logic
 
 const header = document.querySelector(".main-header");
 const stickyObservable = document.querySelector(".sticky-observable");

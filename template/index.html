@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <!--
-  @NOTE: Only setting "overflow-x-hidden" on the body doesn't work. It should be set
-  on both the html and body elements. Also, overflow-x on the page level only
-  works if there's nothing absolutely positioned in relation to body. That's
-  why we add the "relative" class to the header element below
+  @NOTE: The page is not scrollable by default. We enable scrolling & remove loading
+  animation once the page loads (see script.js), that's why we have overflow hidden
+  classes here on the <html> tag
 -->
 <html lang="en" class="overflow-x-hidden overflow-y-hidden">
   <head>
@@ -103,12 +102,16 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
   </head>
-  <!-- @NOTE: Body is not scrollable by default. We enable scrolling & remove loading
-    animation once the page loads. See script.js -->
+  <!--
+    @NOTE: Only setting "overflow-x-hidden" on <html> doesn't work. It should be set
+    on both the <html> and <body> elements. Also, overflow-x on the page level only
+    works if there's nothing absolutely positioned in relation to body. That's
+    why we add the "relative" class to the <header> of Navigation section below
+  -->
   <body
     class="overflow-x-hidden overflow-y-hidden bg-gray-50 scrollbar-thin scrollbar-track-primary-50 scrollbar-thumb-primary-700"
   >
-    <!-- Loading screen -->
+    <!-- SECTION: @Loading screen -->
     <div class="loading-screen relative">
       <div class="absolute top-0 left-0 z-[100] h-screen w-full bg-white">
         <img
