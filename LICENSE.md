@@ -1,6 +1,6 @@
 # License Agreement
 
-Upon purchasing and/or using web templates listed on HTMLWOW website and HTMLWOW Gumroad store, you agree to this license. The terms are very simple. If you have any questions regarding your usage permissions of any template that you buy, please feel free to email me at: CreatorX64@gmail.com
+Upon purchasing and/or using web templates listed on HTMLWOW website and on other template markets, you agree to this license. The terms are very simple. If you have any questions regarding your usage permissions of any template that you buy, please feel free to email me at: CreatorX64@gmail.com
 
 ## Upon purchase, you're allowed to:
 
