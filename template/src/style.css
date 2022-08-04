@@ -55,7 +55,7 @@ utilities, they're just overrides for other styles */
 }
 
 .testimonials-swiper-pagination {
-  @apply mt-6 flex justify-center md:mt-8 lg:mt-12;
+  @apply mt-6 flex justify-center md:mt-8 md:hidden lg:mt-12;
 }
 
 .pricing-swiper .swiper-slide {

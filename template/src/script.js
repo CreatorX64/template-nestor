@@ -207,7 +207,7 @@ const testimonialsSwiper = new Swiper(".testimonials-swiper", {
   direction: "horizontal",
   // Margin between slides
   spaceBetween: 24,
-  centeredSlides: true,
+  centeredSlides: false,
   slidesPerView: "auto",
   // Enable pagination
   pagination: {

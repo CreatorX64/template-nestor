@@ -120,7 +120,7 @@ It's in the format of:
 I provide **free** support for this template as long as one of these conditions are met:
 
 - Part of the code is unclear.
-- Something doesn't work as expected/advertised.
+- Something doesn't work as expected.
 - A file or a snippet of code is somehow missing.
 
 I provide **paid** support in all other cases, like:
